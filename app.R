@@ -2,7 +2,7 @@
 # Eli Lilly and Company (required)-   SDnA
 # CODE NAME (required)              : ODM Parser From VDV (https://github.com/EliLillyCo/LRL_ODMParserFromVDV_App/blob/main/app.R)
 # PROJECT NAME (required)           : ODM Parser From VDV
-# DESCRIPTION (required)            : Reads VDV Codelist Items Compare Tool output coversheet and processes corresponding archived DED xml file. Tool to aid STATS with DED standards from VDV Codelist Items Compare Tool Output run by Study Build Team. 
+# DESCRIPTION (required)            : Reads VDV Codelist Items Compare Tool output coversheet and processes corresponding archived DED xlsx file. Tool to aid STATS with DED standards from VDV Codelist Items Compare Tool Output run by Study Build Team. 
 # SPECIFICATIONS(required)          : N/A
 # VALIDATION TYPE (required)        : N/A
 # INDEPENDENT REPLICATION (required): N/A
@@ -27,24 +27,21 @@
 
 #Load libraries ----
 library(shiny)
-library(tidyverse)
 library(dplyr)
 library(lubridate)
 library(stringr)
-library(XML)
-library(data.table)
 library(readxl)
 library(DT)
 library(shinyjs)
 library(openxlsx)
 library(glue)
-library(tidyr)
 library(datamods)
 library(shinyBS)
 library(shinyalert)
 library(praise)
+
 # Expand memory size limit ----
-options(shiny.maxRequestSize=1000*1024^2, shiny.trace = TRUE)
+options(shiny.maxRequestSize = 1000 * 1024^2)
 
 # Define UI for app ---
 ui <- fluidPage(
@@ -94,7 +91,6 @@ ui <- fluidPage(
                style="text-align: center")
       ),
   mainPanel(
-    # verbatimTextOutput(outputId = "name"),
     DT::dataTableOutput(outputId = "data")
     )
   )
@@ -129,7 +125,6 @@ server <- function(input, output, session) {
     req( !is.null(coversheet_df()) )
     req( coversheet_df()$data(), coversheet_df()$name())
     shinyjs::show("upload_text1")
-    print(coversheet_df()$data())
     })
   
   # wait for user to indicate run process ----
@@ -156,13 +151,10 @@ server <- function(input, output, session) {
       filter(Value == "DED_File_Name") %>% 
       select(Measure) %>%
       pull() %>% 
-      #str_replace("\\.xml$", "") %>%  # Remove any existing .xml extensions if present
       str_c(".xlsx")                 # Append .xlsx
     
     odm_ded_path <- str_c("/lrlhps/data/study_build_team/odm_ded_files/", 
                           odm_ded_name)
-    print(odm_ded_name)
-    print(odm_ded_path)
     validate(
       need(file.exists(odm_ded_path) , 
            glue::glue("Ensure that the ODM DED xlsx file is here: {odm_ded_path}")
@@ -178,9 +170,6 @@ server <- function(input, output, session) {
     
     # run parsing script on data  ---- 
     source("parser_Xlsx.R", local = TRUE)
-    
-    # confirm getting StudyName 
-    print(StudyName)
     
     # reenable run button after run completion 
     shinyjs::enable("runParser")
