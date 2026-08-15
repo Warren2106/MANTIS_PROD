@@ -42,6 +42,7 @@ library(DT)
 conflicts_prefer(plyr::mutate)
 conflicted::conflicts_prefer(shinydashboard::box)
 conflicts_prefer(DT::dataTableOutput)
+conflicts_prefer(dplyr::filter)
 ##define functions used in the application
 SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_items,asses,Lib_codes,sdtm,mapped_items){
   #ODM DED
