@@ -10,6 +10,29 @@
     "has_parameters": false
   },
   "packages": {
+    "BH": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "BH",
+        "Type": "Package",
+        "Title": "Boost C++ Header Files",
+        "Version": "1.81.0-1",
+        "Date": "2023-01-17",
+        "Author": "Dirk Eddelbuettel, John W. Emerson and Michael J. Kane",
+        "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
+        "Description": "Boost provides free peer-reviewed portable C++ source \n libraries.  A large part of Boost is provided as C++ template code\n which is resolved entirely at compile-time without linking.  This \n package aims to provide the most useful subset of Boost libraries \n for template use among CRAN packages. By placing these libraries in \n this package, we offer a more efficient distribution system for CRAN \n as replication of this code in the sources of other packages is \n avoided. As of release 1.81.0-0, the following Boost libraries are\n included: 'accumulators' 'algorithm' 'align' 'any' 'atomic' 'beast'\n 'bimap' 'bind' 'circular_buffer' 'compute' 'concept' 'config'\n 'container' 'date_time' 'detail' 'dynamic_bitset' 'exception'\n 'flyweight' 'foreach' 'functional' 'fusion' 'geometry' 'graph' 'heap'\n 'icl' 'integer' 'interprocess' 'intrusive' 'io' 'iostreams'\n 'iterator' 'lambda2' 'math' 'move' 'mp11' 'mpl' 'multiprecision'\n 'numeric' 'pending' 'phoenix' 'polygon' 'preprocessor' 'process'\n 'propery_tree' 'random' 'range' 'scope_exit' 'smart_ptr' 'sort'\n 'spirit' 'tuple' 'type_traits' 'typeof' 'unordered' 'url' 'utility'\n 'uuid'.",
+        "License": "BSL-1.0",
+        "URL": "https://github.com/eddelbuettel/bh,\nhttps://dirk.eddelbuettel.com/code/bh.html",
+        "BugReports": "https://github.com/eddelbuettel/bh/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-01-17 22:52:33 UTC; edd",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-01-22 08:20:02 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2023-04-21 22:32:00 UTC; unix"
+      }
+    },
     "DBI": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -132,6 +155,84 @@
         "Built": "R 4.4.0; x86_64-pc-linux-gnu; 2024-10-19 06:34:24 UTC; unix"
       }
     },
+    "R.methodsS3": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "R.methodsS3",
+        "Version": "1.8.2",
+        "Depends": "R (>= 2.13.0)",
+        "Imports": "utils",
+        "Suggests": "codetools",
+        "Title": "S3 Methods Simplified",
+        "Authors@R": "c(person(\"Henrik\", \"Bengtsson\", role=c(\"aut\", \"cre\", \"cph\"),\n                                          email = \"henrikb@braju.com\"))",
+        "Author": "Henrik Bengtsson [aut, cre, cph]",
+        "Maintainer": "Henrik Bengtsson <henrikb@braju.com>",
+        "Description": "Methods that simplify the setup of S3 generic functions and S3 methods.  Major effort has been made in making definition of methods as simple as possible with a minimum of maintenance for package developers.  For example, generic functions are created automatically, if missing, and naming conflict are automatically solved, if possible.  The method setMethodS3() is a good start for those who in the future may want to migrate to S4.  This is a cross-platform package implemented in pure R that generates standard S3 methods.",
+        "License": "LGPL (>= 2.1)",
+        "LazyLoad": "TRUE",
+        "URL": "https://github.com/HenrikBengtsson/R.methodsS3",
+        "BugReports": "https://github.com/HenrikBengtsson/R.methodsS3/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-06-13 18:23:35 UTC; hb",
+        "Repository": "RSPM",
+        "Date/Publication": "2022-06-13 22:00:14 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2023-04-22 01:48:38 UTC; unix"
+      }
+    },
+    "R.oo": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "R.oo",
+        "Version": "1.25.0",
+        "Depends": "R (>= 2.13.0), R.methodsS3 (>= 1.8.1)",
+        "Imports": "methods, utils",
+        "Suggests": "tools",
+        "Title": "R Object-Oriented Programming with or without References",
+        "Authors@R": "c(person(\"Henrik\", \"Bengtsson\", role=c(\"aut\", \"cre\", \"cph\"),\n                                          email = \"henrikb@braju.com\"))",
+        "Author": "Henrik Bengtsson [aut, cre, cph]",
+        "Maintainer": "Henrik Bengtsson <henrikb@braju.com>",
+        "Description": "Methods and classes for object-oriented programming in R with or without references.  Large effort has been made on making definition of methods as simple as possible with a minimum of maintenance for package developers.  The package has been developed since 2001 and is now considered very stable.  This is a cross-platform package implemented in pure R that defines standard S3 classes without any tricks.",
+        "License": "LGPL (>= 2.1)",
+        "LazyLoad": "TRUE",
+        "URL": "https://github.com/HenrikBengtsson/R.oo",
+        "BugReports": "https://github.com/HenrikBengtsson/R.oo/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2022-06-12 00:26:52 UTC; hb",
+        "Repository": "RSPM",
+        "Date/Publication": "2022-06-12 02:20:02 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2023-04-22 01:48:45 UTC; unix"
+      }
+    },
+    "R.utils": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "R.utils",
+        "Version": "2.12.3",
+        "Depends": "R (>= 2.14.0), R.oo",
+        "Imports": "methods, utils, tools, R.methodsS3",
+        "Suggests": "datasets, digest (>= 0.6.10)",
+        "Title": "Various Programming Utilities",
+        "Authors@R": "c(person(\"Henrik\", \"Bengtsson\", role=c(\"aut\", \"cre\", \"cph\"),\n                                          email = \"henrikb@braju.com\"))",
+        "Author": "Henrik Bengtsson [aut, cre, cph]",
+        "Maintainer": "Henrik Bengtsson <henrikb@braju.com>",
+        "Description": "Utility functions useful when programming and developing R packages.",
+        "License": "LGPL (>= 2.1)",
+        "LazyLoad": "TRUE",
+        "URL": "https://henrikbengtsson.github.io/R.utils/,\nhttps://github.com/HenrikBengtsson/R.utils",
+        "BugReports": "https://github.com/HenrikBengtsson/R.utils/issues",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-11-17 05:13:25 UTC; henrik",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-11-18 01:00:02 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2023-11-20 14:40:28 UTC; unix"
+      }
+    },
     "R6": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -230,6 +331,59 @@
         "Repository": "RSPM",
         "Date/Publication": "2024-11-02 20:10:02 UTC",
         "Built": "R 4.4.0; x86_64-pc-linux-gnu; 2024-11-03 17:00:56 UTC; unix"
+      }
+    },
+    "XML": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "XML",
+        "Version": "3.99-0.16",
+        "Authors@R": "c(person(\"CRAN Team\", role = c('ctb', 'cre'),\n                    email = \"CRAN@r-project.org\",\n                    comment = \"de facto maintainer since 2013\"),\n             person(\"Duncan\", \"Temple Lang\", role = c(\"aut\"),\n                    email = \"duncan@r-project.org\",\n                    comment = c(ORCID = \"0000-0003-0159-1546\")),\n\t    person(\"Tomas\", \"Kalibera\", role = \"ctb\"))",
+        "Title": "Tools for Parsing and Generating XML Within R and S-Plus",
+        "Depends": "R (>= 4.0.0), methods, utils",
+        "Suggests": "bitops, RCurl",
+        "SystemRequirements": "libxml2 (>= 2.6.3)",
+        "Description": "Many approaches for both reading and\n        creating XML (and HTML) documents (including DTDs), both local\n        and accessible via HTTP or FTP.  Also offers access to an\n        'XPath' \"interpreter\".",
+        "URL": "https://www.omegahat.net/RSXML/",
+        "License": "BSD_3_clause + file LICENSE",
+        "Collate": "AAA.R DTD.R DTDClasses.R DTDRef.R SAXMethods.R XMLClasses.R\napplyDOM.R assignChild.R catalog.R createNode.R dynSupports.R\nerror.R flatTree.R nodeAccessors.R parseDTD.R schema.R\nsummary.R tangle.R toString.R tree.R version.R xmlErrorEnums.R\nxmlEventHandler.R xmlEventParse.R xmlHandler.R\nxmlInternalSource.R xmlOutputDOM.R xmlNodes.R xmlOutputBuffer.R\nxmlTree.R xmlTreeParse.R htmlParse.R hashTree.R zzz.R\nsupports.R parser.R libxmlFeatures.R xmlString.R saveXML.R\nnamespaces.R readHTMLTable.R reflection.R xmlToDataFrame.R\nbitList.R compare.R encoding.R fixNS.R xmlRoot.R serialize.R\nxmlMemoryMgmt.R keyValueDB.R solrDocs.R XMLRErrorInfo.R\nxincludes.R namespaceHandlers.R tangle1.R htmlLinks.R\nhtmlLists.R getDependencies.R getRelativeURL.R xmlIncludes.R\nsimplifyPath.R",
+        "NeedsCompilation": "yes",
+        "Packaged": "2023-11-29 11:01:59 UTC; hornik",
+        "Author": "CRAN Team [ctb, cre] (de facto maintainer since 2013),\n  Duncan Temple Lang [aut] (<https://orcid.org/0000-0003-0159-1546>),\n  Tomas Kalibera [ctb]",
+        "Maintainer": "CRAN Team <CRAN@r-project.org>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-11-29 11:55:26 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2023-11-30 22:24:03 UTC; unix"
+      }
+    },
+    "anytime": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "anytime",
+        "Type": "Package",
+        "Title": "Anything to 'POSIXct' or 'Date' Converter",
+        "Version": "0.3.9",
+        "Date": "2020-08-26",
+        "Author": "Dirk Eddelbuettel",
+        "Maintainer": "Dirk Eddelbuettel <edd@debian.org>",
+        "Description": "Convert input in any one of character, integer, numeric, factor,\n or ordered type into 'POSIXct' (or 'Date') objects, using one of a number of\n predefined formats, and relying on Boost facilities for date and time parsing.",
+        "URL": "http://dirk.eddelbuettel.com/code/anytime.html",
+        "BugReports": "https://github.com/eddelbuettel/anytime/issues",
+        "License": "GPL (>= 2)",
+        "Encoding": "UTF-8",
+        "Depends": "R (>= 3.2.0)",
+        "Imports": "Rcpp (>= 0.12.9)",
+        "LinkingTo": "Rcpp (>= 0.12.9), BH",
+        "Suggests": "tinytest (>= 1.0.0), gettz",
+        "RoxygenNote": "6.0.1",
+        "NeedsCompilation": "yes",
+        "Packaged": "2020-08-26 17:46:45.898451 UTC; edd",
+        "Repository": "RSPM",
+        "Date/Publication": "2020-08-27 11:40:21 UTC",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-01-12 17:03:21 UTC; unix"
       }
     },
     "askpass": {
@@ -824,6 +978,34 @@
         "Built": "R 4.4.0; x86_64-pc-linux-gnu; 2024-10-11 04:54:33 UTC; unix"
       }
     },
+    "datamods": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "datamods",
+        "Title": "Modules to Import and Manipulate Data in 'Shiny'",
+        "Version": "1.4.2",
+        "Authors@R": "\n    c(person(given = \"Victor\",\n             family = \"Perrier\",\n             role = c(\"aut\", \"cre\", \"cph\"),\n             email = \"victor.perrier@dreamrs.fr\"),\n      person(given = \"Fanny\",\n             family = \"Meyer\",\n             role = \"aut\"),\n      person(given = \"Samra\",\n             family = \"Goumri\",\n             role = \"aut\"),\n      person(given = \"Zauad Shahreer\",\n             family = \"Abeer\",\n             role = \"aut\",\n             email = \"shahreyar.abeer@gmail.com\"),\n      person(given = \"Eduard\",\n             family = \"Szöcs\",\n             role = \"ctb\",\n             email = \"eduardszoecs@gmail.com\")\n      )",
+        "Description": "'Shiny' modules to import data into an application or 'addin'\n    from various sources, and to manipulate them after that.",
+        "License": "GPL-3",
+        "URL": "https://github.com/dreamRs/datamods",
+        "BugReports": "https://github.com/dreamRs/datamods/issues",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.3",
+        "Imports": "data.table, htmltools, htmlwidgets, phosphoricons, reactable,\nreadxl, rio, rlang, shiny (>= 1.5.0), shinyWidgets (>= 0.7.3),\ntibble, tools, shinybusy, writexl",
+        "Suggests": "bslib, jsonlite, knitr, MASS, rmarkdown, testthat, validate",
+        "VignetteBuilder": "knitr",
+        "Depends": "R (>= 2.10)",
+        "LazyData": "true",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-09-26 11:45:54 UTC; victorp",
+        "Author": "Victor Perrier [aut, cre, cph],\n  Fanny Meyer [aut],\n  Samra Goumri [aut],\n  Zauad Shahreer Abeer [aut],\n  Eduard Szöcs [ctb]",
+        "Maintainer": "Victor Perrier <victor.perrier@dreamrs.fr>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-09-26 12:50:06 UTC",
+        "Built": "R 4.3.0; ; 2023-09-28 20:02:54 UTC; unix"
+      }
+    },
     "dbplyr": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -942,6 +1124,32 @@
         "Repository": "RSPM",
         "Date/Publication": "2023-03-22 13:10:05 UTC",
         "Built": "R 4.4.0; ; 2024-04-24 19:22:57 UTC; unix"
+      }
+    },
+    "ellipsis": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "ellipsis",
+        "Version": "0.3.2",
+        "Title": "Tools for Working with ...",
+        "Description": "The ellipsis is a powerful tool for extending functions. Unfortunately \n    this power comes at a cost: misspelled arguments will be silently ignored. \n    The ellipsis package provides a collection of functions to catch problems\n    and alert the user.",
+        "Authors@R": "c(\n      person(\"Hadley\", \"Wickham\", , \"hadley@rstudio.com\", role = c(\"aut\", \"cre\")),\n      person(\"RStudio\", role = \"cph\")\n    )",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.1.1",
+        "URL": "https://ellipsis.r-lib.org, https://github.com/r-lib/ellipsis",
+        "BugReports": "https://github.com/r-lib/ellipsis/issues",
+        "Depends": "R (>= 3.2)",
+        "Imports": "rlang (>= 0.3.0)",
+        "Suggests": "covr, testthat",
+        "NeedsCompilation": "yes",
+        "Packaged": "2021-04-29 12:06:44 UTC; lionel",
+        "Author": "Hadley Wickham [aut, cre],\n  RStudio [cph]",
+        "Maintainer": "Hadley Wickham <hadley@rstudio.com>",
+        "Repository": "RSPM",
+        "Date/Publication": "2021-04-29 12:40:02 UTC",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2023-04-21 21:50:11 UTC; unix"
       }
     },
     "evaluate": {
@@ -1133,6 +1341,37 @@
         "Repository": "RSPM",
         "Date/Publication": "2023-01-29 22:20:02 UTC",
         "Built": "R 4.4.0; ; 2024-04-25 19:50:13 UTC; unix"
+      }
+    },
+    "foreign": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "foreign",
+        "Priority": "recommended",
+        "Version": "0.8-86",
+        "Date": "2023-11-26",
+        "Title": "Read Data Stored by 'Minitab', 'S', 'SAS', 'SPSS', 'Stata',\n'Systat', 'Weka', 'dBase', ...",
+        "Depends": "R (>= 4.0.0)",
+        "Imports": "methods, utils, stats",
+        "Authors@R": "c(\n   person(\"R Core Team\",\n      email = \"R-core@R-project.org\", role = c(\"aut\", \"cph\", \"cre\")),\n    person(\"Roger\", \"Bivand\", role = c(\"ctb\", \"cph\")),\n    person(c(\"Vincent\", \"J.\"), \"Carey\", role = c(\"ctb\", \"cph\")),\n    person(\"Saikat\", \"DebRoy\", role = c(\"ctb\", \"cph\")),\n    person(\"Stephen\", \"Eglen\", role = c(\"ctb\", \"cph\")),\n    person(\"Rajarshi\", \"Guha\", role = c(\"ctb\", \"cph\")),\n    person(\"Swetlana\", \"Herbrandt\", role = \"ctb\"),\n    person(\"Nicholas\", \"Lewin-Koh\", role = c(\"ctb\", \"cph\")),\n    person(\"Mark\", \"Myatt\", role = c(\"ctb\", \"cph\")),\n    person(\"Michael\", \"Nelson\", role = \"ctb\"),\n    person(\"Ben\", \"Pfaff\", role = \"ctb\"),\n    person(\"Brian\", \"Quistorff\", role = \"ctb\"),\n    person(\"Frank\", \"Warmerdam\", role = c(\"ctb\", \"cph\")),\n    person(\"Stephen\", \"Weigand\", role = c(\"ctb\", \"cph\")),\n    person(\"Free Software Foundation, Inc.\", role = \"cph\"))",
+        "Contact": "see 'MailingList'",
+        "Copyright": "see file COPYRIGHTS",
+        "Description": "Reading and writing data stored by some versions of\n\t'Epi Info', 'Minitab', 'S', 'SAS', 'SPSS', 'Stata', 'Systat', 'Weka',\n\tand for reading and writing some 'dBase' files.",
+        "ByteCompile": "yes",
+        "Biarch": "yes",
+        "License": "GPL (>= 2)",
+        "BugReports": "https://bugs.r-project.org",
+        "MailingList": "R-help@r-project.org",
+        "URL": "https://svn.r-project.org/R-packages/trunk/foreign/",
+        "NeedsCompilation": "yes",
+        "Packaged": "2023-11-26 16:54:35 UTC; ripley",
+        "Author": "R Core Team [aut, cph, cre],\n  Roger Bivand [ctb, cph],\n  Vincent J. Carey [ctb, cph],\n  Saikat DebRoy [ctb, cph],\n  Stephen Eglen [ctb, cph],\n  Rajarshi Guha [ctb, cph],\n  Swetlana Herbrandt [ctb],\n  Nicholas Lewin-Koh [ctb, cph],\n  Mark Myatt [ctb, cph],\n  Michael Nelson [ctb],\n  Ben Pfaff [ctb],\n  Brian Quistorff [ctb],\n  Frank Warmerdam [ctb, cph],\n  Stephen Weigand [ctb, cph],\n  Free Software Foundation, Inc. [cph]",
+        "Maintainer": "R Core Team <R-core@R-project.org>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-11-28 06:42:13 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2024-06-26 19:56:33 UTC; unix"
       }
     },
     "fs": {
@@ -2147,6 +2386,31 @@
         "RemoteSha": "4.2.8.1"
       }
     },
+    "phosphoricons": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "phosphoricons",
+        "Title": "'Phosphor' Icons for R",
+        "Version": "0.2.0",
+        "Authors@R": "\n    c(person(given = \"Victor\",\n             family = \"Perrier\",\n             role = c(\"aut\", \"cre\", \"cph\"),\n             email = \"victor.perrier@dreamrs.fr\"),\n      person(given = \"Fanny\",\n             family = \"Meyer\",\n             role = \"aut\"),\n      person(given = \"Phosphor Icons\",\n             role = \"cph\",\n             comment = \"Phosphor Icons <https://github.com/phosphor-icons>\"))",
+        "Description": "Use 'Phosphor' icons in 'shiny' applications or 'rmarkdown' documents. Icons are available in\n    5 different weights and can be customized by setting color, size, orientation and more.",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.3",
+        "Depends": "R (>= 2.10)",
+        "Imports": "htmltools (>= 0.3)",
+        "Suggests": "covr, shiny, tinytest",
+        "URL": "https://dreamrs.github.io/phosphoricons/",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-05-17 11:25:50 UTC; victorp",
+        "Author": "Victor Perrier [aut, cre, cph],\n  Fanny Meyer [aut],\n  Phosphor Icons [cph] (Phosphor Icons\n    <https://github.com/phosphor-icons>)",
+        "Maintainer": "Victor Perrier <victor.perrier@dreamrs.fr>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-05-17 12:30:07 UTC",
+        "Built": "R 4.3.0; ; 2023-05-18 13:26:07 UTC; unix"
+      }
+    },
     "pillar": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -2258,6 +2522,30 @@
         "Repository": "RSPM",
         "Date/Publication": "2023-10-02 06:50:08 UTC",
         "Built": "R 4.4.0; x86_64-pc-linux-gnu; 2024-11-03 17:18:02 UTC; unix"
+      }
+    },
+    "praise": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "praise",
+        "Title": "Praise Users",
+        "Version": "1.0.0",
+        "Author": "Gabor Csardi, Sindre Sorhus",
+        "Maintainer": "Gabor Csardi <csardi.gabor@gmail.com>",
+        "Description": "Build friendly R packages that\n    praise their users if they have done something\n    good, or they just need it to feel better.",
+        "License": "MIT + file LICENSE",
+        "LazyData": "true",
+        "URL": "https://github.com/gaborcsardi/praise",
+        "BugReports": "https://github.com/gaborcsardi/praise/issues",
+        "Suggests": "testthat",
+        "Collate": "'adjective.R' 'adverb.R' 'exclamation.R' 'verb.R' 'rpackage.R'\n'package.R'",
+        "NeedsCompilation": "no",
+        "Packaged": "2015-08-11 02:01:43 UTC; gaborcsardi",
+        "Repository": "RSPM",
+        "Date/Publication": "2015-08-11 08:22:28",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2024-06-26 19:56:04 UTC; unix"
       }
     },
     "prettyunits": {
@@ -2489,6 +2777,62 @@
         "Built": "R 4.4.0; x86_64-pc-linux-gnu; 2024-04-25 19:41:34 UTC; unix"
       }
     },
+    "reactR": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "reactR",
+        "Type": "Package",
+        "Title": "React Helpers",
+        "Version": "0.5.0",
+        "Date": "2023-10-01",
+        "Authors@R": "c(\n      person(\n        \"Facebook\", \"Inc\"\n        , role = c(\"aut\", \"cph\")\n        , comment = \"React library in lib, https://reactjs.org/; see AUTHORS for full list of contributors\"\n      ),\n      person(\n        \"Michel\",\"Weststrate\",\n        , role = c(\"aut\", \"cph\")\n        , comment = \"mobx library in lib, https://github.com/mobxjs\"\n      ),\n      person(\n        \"Kent\", \"Russell\"\n        , role = c(\"aut\", \"cre\")\n        , comment = \"R interface\"\n        , email = \"kent.russell@timelyportfolio.com\"\n      ),\n      person(\n        \"Alan\", \"Dipert\"\n        , role = c(\"aut\")\n        , comment = \"R interface\"\n        , email = \"alan@rstudio.com\"\n      )\n    )",
+        "Maintainer": "Kent Russell <kent.russell@timelyportfolio.com>",
+        "Description": "Make it easy to use 'React' in R with 'htmlwidget' scaffolds,\n              helper dependency functions, an embedded 'Babel' 'transpiler',\n              and examples.",
+        "URL": "https://github.com/react-R/reactR",
+        "BugReports": "https://github.com/react-R/reactR/issues",
+        "License": "MIT + file LICENSE",
+        "Encoding": "UTF-8",
+        "Imports": "htmltools",
+        "Suggests": "htmlwidgets (>= 1.5.3), rmarkdown, shiny, V8, knitr, usethis,\njsonlite",
+        "RoxygenNote": "7.2.3",
+        "VignetteBuilder": "knitr",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-10-11 03:05:02 UTC; kentr",
+        "Author": "Facebook Inc [aut, cph] (React library in lib, https://reactjs.org/;\n    see AUTHORS for full list of contributors),\n  Michel Weststrate [aut, cph] (mobx library in lib,\n    https://github.com/mobxjs),\n  Kent Russell [aut, cre] (R interface),\n  Alan Dipert [aut] (R interface)",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-10-11 04:40:02 UTC",
+        "Built": "R 4.3.0; ; 2023-10-12 12:16:44 UTC; unix"
+      }
+    },
+    "reactable": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "reactable",
+        "Type": "Package",
+        "Title": "Interactive Data Tables for R",
+        "Version": "0.4.4",
+        "Authors@R": "c(\n    person(\"Greg\", \"Lin\", email = \"glin@glin.io\", role = c(\"aut\", \"cre\")),\n    person(\"Tanner\", \"Linsley\", role = c(\"ctb\", \"cph\"), comment = \"React Table library\"),\n    person(family = \"Emotion team and other contributors\", role = c(\"ctb\", \"cph\"),\n           comment = \"Emotion library\"),\n    person(\"Kent\", \"Russell\", role = c(\"ctb\", \"cph\"), comment = \"reactR package\"),\n    person(\"Ramnath\", \"Vaidyanathan\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Joe\", \"Cheng\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"JJ\", \"Allaire\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Yihui\", \"Xie\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(\"Kenton\", \"Russell\", role = c(\"ctb\", \"cph\"), comment = \"htmlwidgets package\"),\n    person(family = \"Facebook, Inc. and its affiliates\", role = c(\"ctb\", \"cph\"), comment = \"React library\"),\n    person(family = \"FormatJS\", role = c(\"ctb\", \"cph\"), comment = \"FormatJS libraries\"),\n    person(family = \"Feross Aboukhadijeh, and other contributors\", role = c(\"ctb\", \"cph\"),\n           comment = \"buffer library\"),\n    person(\"Roman\", \"Shtylman\", role = c(\"ctb\", \"cph\"), comment = \"process library\"),\n    person(\"James\", \"Halliday\", role = c(\"ctb\", \"cph\"), comment = \"stream-browserify library\"),\n    person(family = \"Posit Software, PBC\", role = c(\"fnd\", \"cph\"))\n    )",
+        "Description": "Interactive data tables for R, based on the 'React Table'\n    JavaScript library. Provides an HTML widget that can be used in 'R Markdown'\n    or 'Quarto' documents, 'Shiny' applications, or viewed from an R console.",
+        "License": "MIT + file LICENSE",
+        "URL": "https://glin.github.io/reactable/,\nhttps://github.com/glin/reactable",
+        "BugReports": "https://github.com/glin/reactable/issues",
+        "Depends": "R (>= 3.1)",
+        "Imports": "digest, htmltools (>= 0.5.2), htmlwidgets (>= 1.5.3),\njsonlite, reactR",
+        "Suggests": "covr, crosstalk, dplyr, fontawesome, knitr, leaflet, MASS,\nrmarkdown, shiny, sparkline, testthat, tippy, V8",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.1",
+        "Config/testthat/edition": "3",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-03-12 00:59:18 UTC; greg",
+        "Author": "Greg Lin [aut, cre],\n  Tanner Linsley [ctb, cph] (React Table library),\n  Emotion team and other contributors [ctb, cph] (Emotion library),\n  Kent Russell [ctb, cph] (reactR package),\n  Ramnath Vaidyanathan [ctb, cph] (htmlwidgets package),\n  Joe Cheng [ctb, cph] (htmlwidgets package),\n  JJ Allaire [ctb, cph] (htmlwidgets package),\n  Yihui Xie [ctb, cph] (htmlwidgets package),\n  Kenton Russell [ctb, cph] (htmlwidgets package),\n  Facebook, Inc. and its affiliates [ctb, cph] (React library),\n  FormatJS [ctb, cph] (FormatJS libraries),\n  Feross Aboukhadijeh, and other contributors [ctb, cph] (buffer library),\n  Roman Shtylman [ctb, cph] (process library),\n  James Halliday [ctb, cph] (stream-browserify library),\n  Posit Software, PBC [fnd, cph]",
+        "Maintainer": "Greg Lin <glin@glin.io>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-03-12 10:00:10 UTC",
+        "Built": "R 4.3.0; ; 2023-04-22 03:12:32 UTC; unix"
+      }
+    },
     "readr": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -2632,6 +2976,34 @@
         "Repository": "RSPM",
         "Date/Publication": "2024-07-06 13:50:01 UTC",
         "Built": "R 4.4.0; ; 2024-07-07 12:22:29 UTC; unix"
+      }
+    },
+    "rio": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "rio",
+        "Type": "Package",
+        "Title": "A Swiss-Army Knife for Data I/O",
+        "Version": "1.0.1",
+        "Authors@R": "c(person(\"Jason\", \"Becker\", role = \"aut\", email = \"jason@jbecker.co\"),\n             person(\"Chung-hong\", \"Chan\", role = c(\"aut\", \"cre\"), email = \"chainsawtiney@gmail.com\",\n\t     \t     comment = c(ORCID = \"0000-0002-6232-7530\")),\n             person(\"David\", \"Schoch\", email = \"david@schochastics.net\", role = c(\"aut\"),\n                     comment = c(ORCID = \"0000-0003-2952-4812\")),\n             person(\"Geoffrey CH\", \"Chan\", role = \"ctb\", email = \"gefchchan@gmail.com\"),\n             person(\"Thomas J.\", \"Leeper\",\n                    role = \"aut\", \n                    email = \"thosjleeper@gmail.com\",\n                    comment = c(ORCID = \"0000-0003-4097-6326\")),\n             person(\"Christopher\", \"Gandrud\", role = \"ctb\"),\n             person(\"Andrew\", \"MacDonald\", role = \"ctb\"),\n             person(\"Ista\", \"Zahn\", role = \"ctb\"),\n             person(\"Stanislaus\", \"Stadlmann\", role = \"ctb\"),\n             person(\"Ruaridh\", \"Williamson\", role = \"ctb\", email = \"ruaridh.williamson@gmail.com\"),\n             person(\"Patrick\", \"Kennedy\", role = \"ctb\"),\n             person(\"Ryan\", \"Price\", email = \"ryapric@gmail.com\", role = \"ctb\"),\n             person(\"Trevor L\", \"Davis\", email = \"trevor.l.davis@gmail.com\", role = \"ctb\"),\n             person(\"Nathan\", \"Day\", email = \"nathancday@gmail.com\", role = \"ctb\"),\n             person(\"Bill\", \"Denney\",\n                    email=\"wdenney@humanpredictions.com\",\n                    role=\"ctb\",\n                    comment=c(ORCID=\"0000-0002-5759-428X\")),\n             person(\"Alex\", \"Bokov\", email = \"alex.bokov@gmail.com\", role = \"ctb\",\n                    comment=c(ORCID=\"0000-0002-0511-9815\"))\n             )",
+        "Description": "Streamlined data import and export by making assumptions that\n    the user is probably willing to make: 'import()' and 'export()' determine\n    the data structure from the file extension, reasonable defaults are used for\n    data import and export (e.g., 'stringsAsFactors=FALSE'), web-based import is\n    natively supported (including from SSL/HTTPS), compressed files can be read\n    directly without explicit decompression, and fast import packages are used where\n    appropriate. An additional convenience function, 'convert()', provides a simple\n    method for converting between file types.",
+        "URL": "https://github.com/gesistsa/rio",
+        "BugReports": "https://github.com/gesistsa/rio/issues",
+        "Depends": "R (>= 3.6)",
+        "Imports": "tools, stats, utils, foreign, haven (>= 1.1.2), curl (>= 0.6),\ndata.table (>= 1.11.2), readxl (>= 0.1.1), tibble, stringi,\nwritexl, lifecycle, R.utils",
+        "Suggests": "datasets, bit64, testthat, knitr, magrittr, clipr, fst,\nhexView, jsonlite, pzfx, readODS (>= 2.1.0), readr, rmarkdown,\nrmatio, xml2 (>= 1.2.0), yaml, qs, arrow (>= 0.17.0)",
+        "License": "GPL-2",
+        "VignetteBuilder": "knitr",
+        "Encoding": "UTF-8",
+        "RoxygenNote": "7.2.3",
+        "NeedsCompilation": "no",
+        "Packaged": "2023-09-19 10:00:11 UTC; chainsawriot",
+        "Author": "Jason Becker [aut],\n  Chung-hong Chan [aut, cre] (<https://orcid.org/0000-0002-6232-7530>),\n  David Schoch [aut] (<https://orcid.org/0000-0003-2952-4812>),\n  Geoffrey CH Chan [ctb],\n  Thomas J. Leeper [aut] (<https://orcid.org/0000-0003-4097-6326>),\n  Christopher Gandrud [ctb],\n  Andrew MacDonald [ctb],\n  Ista Zahn [ctb],\n  Stanislaus Stadlmann [ctb],\n  Ruaridh Williamson [ctb],\n  Patrick Kennedy [ctb],\n  Ryan Price [ctb],\n  Trevor L Davis [ctb],\n  Nathan Day [ctb],\n  Bill Denney [ctb] (<https://orcid.org/0000-0002-5759-428X>),\n  Alex Bokov [ctb] (<https://orcid.org/0000-0002-0511-9815>)",
+        "Maintainer": "Chung-hong Chan <chainsawtiney@gmail.com>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-09-19 11:20:02 UTC",
+        "Built": "R 4.3.0; ; 2023-09-20 11:51:48 UTC; unix"
       }
     },
     "rlang": {
@@ -2873,6 +3245,30 @@
         "Built": "R 4.4.0; ; 2024-08-02 05:10:09 UTC; unix"
       }
     },
+    "shinyBS": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "shinyBS",
+        "Type": "Package",
+        "Title": "Twitter Bootstrap Components for Shiny",
+        "Version": "0.61.1",
+        "Date": "2015-03-30",
+        "Author": "Eric Bailey",
+        "Maintainer": "Eric Bailey <ebailey@idem.in.gov>",
+        "Description": "Adds additional Twitter Bootstrap components to Shiny. ",
+        "Imports": "shiny (>= 0.11), htmltools",
+        "URL": "https://ebailey78.github.io/shinyBS",
+        "BugReports": "https://github.com/ebailey78/shinyBS/issues",
+        "License": "GPL-3",
+        "Packaged": "2022-04-17 17:00:11 UTC; hornik",
+        "NeedsCompilation": "no",
+        "Repository": "RSPM",
+        "Date/Publication": "2022-04-17 17:43:50 UTC",
+        "Encoding": "UTF-8",
+        "Built": "R 4.3.0; ; 2023-04-22 02:37:53 UTC; unix"
+      }
+    },
     "shinyWidgets": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -2975,6 +3371,33 @@
         "Date/Publication": "2021-09-30 12:10:06 UTC",
         "Encoding": "UTF-8",
         "Built": "R 4.4.0; ; 2024-04-25 20:32:06 UTC; unix"
+      }
+    },
+    "shinyjs": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "shinyjs",
+        "Title": "Easily Improve the User Experience of Your Shiny Apps in Seconds",
+        "Version": "2.1.0",
+        "Authors@R": "person(\"Dean\", \"Attali\", \n    email = \"daattali@gmail.com\",\n    role = c(\"aut\", \"cre\"),\n    comment= c(ORCID=\"0000-0002-5645-3493\"))",
+        "Description": "Perform common useful JavaScript operations in Shiny apps that will\n    greatly improve your apps without having to know any JavaScript. Examples\n    include: hiding an element, disabling an input, resetting an input back to\n    its original value, delaying code execution by a few seconds, and many more\n    useful functions for both the end user and the developer. 'shinyjs' can also\n    be used to easily call your own custom JavaScript functions from R.",
+        "URL": "https://deanattali.com/shinyjs/",
+        "BugReports": "https://github.com/daattali/shinyjs/issues",
+        "Depends": "R (>= 3.1.0)",
+        "Imports": "digest (>= 0.6.8), jsonlite, shiny (>= 1.0.0)",
+        "Suggests": "htmltools (>= 0.2.9), knitr (>= 1.7), rmarkdown, shinyAce,\nshinydisconnect, testthat (>= 0.9.1)",
+        "License": "MIT + file LICENSE",
+        "VignetteBuilder": "knitr",
+        "RoxygenNote": "7.1.1",
+        "Encoding": "UTF-8",
+        "NeedsCompilation": "no",
+        "Packaged": "2021-12-21 11:32:22 UTC; Dean-X1C",
+        "Author": "Dean Attali [aut, cre] (<https://orcid.org/0000-0002-5645-3493>)",
+        "Maintainer": "Dean Attali <daattali@gmail.com>",
+        "Repository": "RSPM",
+        "Date/Publication": "2021-12-23 10:10:02 UTC",
+        "Built": "R 4.3.0; ; 2023-04-21 22:28:10 UTC; unix"
       }
     },
     "sourcetools": {
@@ -3544,6 +3967,32 @@
         "Built": "R 4.4.0; ; 2024-10-29 05:04:09 UTC; unix"
       }
     },
+    "writexl": {
+      "Source": "CRAN",
+      "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
+      "description": {
+        "Package": "writexl",
+        "Type": "Package",
+        "Title": "Export Data Frames to Excel 'xlsx' Format",
+        "Version": "1.4.2",
+        "Authors@R": "c(\n    person(\"Jeroen\", \"Ooms\", ,\"jeroen@berkeley.edu\", role = c(\"aut\", \"cre\"),\n      comment = c(ORCID = \"0000-0002-4035-0289\")),\n    person(\"John McNamara\", role = \"cph\",\n      comment = \"Author of libxlsxwriter (see AUTHORS and COPYRIGHT files for details)\"))",
+        "Description": "Zero-dependency data frame to xlsx exporter based on 'libxlsxwriter'. \n    Fast and no Java or Excel required.",
+        "License": "BSD_2_clause + file LICENSE",
+        "Encoding": "UTF-8",
+        "URL": "https://docs.ropensci.org/writexl/ (website)\nhttps://github.com/ropensci/writexl (devel)\nhttps://libxlsxwriter.github.io (upstream)",
+        "BugReports": "https://github.com/ropensci/writexl/issues",
+        "RoxygenNote": "7.0.2",
+        "Suggests": "spelling, readxl, nycflights13, testthat, bit64",
+        "Language": "en-US",
+        "NeedsCompilation": "yes",
+        "Packaged": "2023-01-06 17:19:16 UTC; jeroen",
+        "Author": "Jeroen Ooms [aut, cre] (<https://orcid.org/0000-0002-4035-0289>),\n  John McNamara [cph] (Author of libxlsxwriter (see AUTHORS and COPYRIGHT\n    files for details))",
+        "Maintainer": "Jeroen Ooms <jeroen@berkeley.edu>",
+        "Repository": "RSPM",
+        "Date/Publication": "2023-01-06 22:30:01 UTC",
+        "Built": "R 4.3.0; x86_64-pc-linux-gnu; 2023-04-22 03:08:56 UTC; unix"
+      }
+    },
     "xfun": {
       "Source": "CRAN",
       "Repository": "https://packagemanager.aws.lilly.com/cran/latest",
@@ -3737,6 +4186,18 @@
     },
     "SDS_DED_FUN.R": {
       "checksum": "d137ec9074232dd19d004f9280874f07"
+    },
+    "manifest1_app.R": {
+      "checksum": "566fe416ec3c69092e39e168b3462197"
+    },
+    "parser_Xlsx.R": {
+      "checksum": "6792a09f91d894cbfcb8aa453d6654ca"
+    },
+    "parser.R": {
+      "checksum": "7d13e6f82ef2a7274d0d0431ca51f1e8"
+    },
+    "README.md": {
+      "checksum": "db349f392504c170253ea05373e593a2"
     }
   },
   "users": null
