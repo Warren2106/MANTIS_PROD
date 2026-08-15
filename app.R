@@ -1308,11 +1308,11 @@ ui <- navbarPage(
         float: none;
       }
       .navbar-left, .navbar-nav {
-        float: none !important;
+        float: none !important; text-align: center;
       }
       .navbar-nav {
         display: block;
-        width: 100%; text-align: center;
+        width: 100%;
       }
       .navbar-nav > li {
         float: none;
