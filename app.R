@@ -1744,9 +1744,6 @@ server <- function(input, output, session) {
              )
     )
     
-    # running alert ---- 
-    shinyalert("Running now", "The application is running now. Wait a few min.", type = "success")
-    
     # disable run button after first click
     shinyjs::disable("runParser")
     shinyjs::show("text1")
