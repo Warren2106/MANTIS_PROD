@@ -27,6 +27,7 @@ Sys.umask('0007')
 #initialize required packages 
 library(shiny)
 library(plyr)
+library(shinyWidgets)
 library(shinydashboard)
 library(tidyverse)
 library(dplyr)
