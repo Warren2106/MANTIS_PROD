@@ -25,51 +25,24 @@ Sys.umask('0007')
 
 
 #initialize required packages 
-library(ff)
 library(shiny)
 library(plyr)
-library(shinyWidgets)
 library(shinydashboard)
-library(shinyalert)
 library(tidyverse)
 library(dplyr)
-library(readr)
 library(readxl)
 library(openxlsx)
-library(lubridate)
 library(data.table)
 library(shinybusy)
-library(DBI)
-library(RPostgreSQL)
 library(zoo)
 library(stringi)
 library(conflicted)
-
-
-#Graphing and charting packages
-library(ggplot2) 
-library(plotly)
 library(DT)
 conflicts_prefer(plyr::mutate)
 conflicted::conflicts_prefer(shinydashboard::box)
-conflicts_prefer(plotly::filter)
 conflicts_prefer(DT::dataTableOutput)
 ##define functions used in the application
 SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_items,asses,Lib_codes,sdtm,mapped_items){
-  #ded <- reactive({read_excel(input$uploadFile_ded$datapath, sheet = "Combined_DED")})
-  
-  # ded <- data.frame(ded())
-  # names(ded) <- make.names(names(ded)) 
-  # 
-  # #ded_code <- reactive({read_excel(input$uploadFile_ded$datapath, sheet = "tblCodelists")})
-  # 
-  # 
-  # ded_code <- data.frame(ded_code())
-  # names(ded_code) <- make.names(names(ded_code)) 
-  # 
-  ##### Study Files####
-  #Lib_items <- reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Form Definitions")})
-  
   #ODM DED
   odm_forms <- data.frame(odm_forms())
   odm_items <- data.frame(odm_items())
@@ -141,14 +114,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   
   
   
-  #update
-  #subset codelists
-  # ded_subcl <- data.frame(ded_subcl())
-  # names(ded_subcl) <- make.names(names(ded_subcl))	
-  # ded_subcl %>% select(Subset.OID,Code,Long.Decode)->ded_subcl
-  
-  
-  #asses <- read_excel(file.choose(),sheet = "Assessments")
   asses <- data.frame(asses())
   names(asses) <- make.names(names(asses)) 
   
@@ -168,35 +133,16 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   
   #end update
   
-  #subset active codes
-  # ded %>% select(Item.OID,Item.Active.Status)->ded_active
-  # ded_code %>% select(Codelist.OID, Codelist.Active.Status) -> ded_code_active
-  
-  
-  #Lib_codes <- reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Codelists")})
-  
   Lib_codes <- data.frame(Lib_codes())
   names(Lib_codes) <- make.names(names(Lib_codes)) 
   
   ### SDTM Library####
-  
-  #sdtm <- reactive({read_excel(input$uploadFile_map_lib$datapath)})
   
   sdtm <- data.frame(sdtm())
   names(sdtm) <- make.names(names(sdtm)) 
   
   ### Mapping file####
   
-  #mapped_items<-reactive({ 
-  # file_m <-input$uploadFile$datapath
-  #sheets <- excel_sheets(file_m)
-  #sheets <- sheets[grep("_Map", sheets)]
-  
-  #mapped_items <- lapply(sheets, read_excel, path = input$uploadFile)
-  #})
-  # as.data.frame(mapped_items)->mapped_items
-  
-  #mapped_items <- reactive({read_excel(input$uploadFile_map$datapath, sheet = 2)}) 
   mapped_items <- data.frame(mapped_items())
   
   names(mapped_items) <- make.names(names(mapped_items)) 
@@ -1515,25 +1461,11 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
     
     asses_codes$Choice.Code <- gsub("_", " ", asses_codes$Choice.Code)
     
-    #update
-    
-    
-    
-    #ded_subcl %>% select(Subset.OID,Code,Long.Decode)->ded_subcl
-    
-    
     #concat
     ded_code_Sub_asses$joins<-paste(ded_code_Sub_asses$Codelist.OID,ded_code_Sub_asses$Code)
     asses_codes$concat<-paste(asses_codes$Codelist,asses_codes$Choice.Code)
     
     asses_codes$concat_cc<-paste(asses_codes$Codelist,asses_codes$Choice.Label)
-    
-    
-    #ded_subcl$joins<-paste(ded_subcl$Subset.OID,ded_subcl$Code)
-    
-    
-    #ded_subcl$concat.choice<-paste(ded_subcl$Subset.OID,ded_subcl$Long.Decode)
-    
     
     #replace any spaces
     searchString <- ' '
@@ -1543,20 +1475,9 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
     
     asses_codes$concat_cc = sub(searchString,replacementString,asses_codes$concat_cc)
     
-    
-    #ded_subcl$joins = sub(searchString,replacementString,ded_subcl$joins)
-    
-    #ded_subcl$concat.choice = sub(searchString,replacementString,ded_subcl$concat.choice)
-    
     trimws(asses_codes$concat)->asses_codes$concat
     
     trimws(asses_codes$concat_cc)->asses_codes$concat_cc
-    
-    
-    #prepare for join
-    #ded_subcl %>% select(-concat.choice)->ded_subcl_j
-    
-    #ded_subcl %>% select(-joins)->ded_subcl_cc
     
     #lower case
     tolower(asses_codes$concat)->asses_codes$concat
@@ -1568,14 +1489,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
     asses_codes %>%
       left_join(ded_code_Sub_asses, by = c("concat" = "joins"))->asses_codes
     
-    # asses_codes %>%
-    #   left_join(ded_subcl_j, by = c("concat" = "joins"))->asses_codes
-    # 
-    # asses_codes %>%
-    #   left_join(ded_subcl_cc, by = c("concat_cc" = "concat.choice"))->asses_codes
-    
-    
-    
     asses_codes %>%
       left_join(ded_code_Sub_asses, by = c("concat_cc" = "joins"))->asses_codes
     
@@ -1585,8 +1498,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
     
     
     #label missing
-    # ifelse(!is.na(asses_codes$Codelist.OID),asses_codes$Codelist.OID, ifelse(!is.na(asses_codes$Subset.OID.x),asses_codes$Subset.OID.x,ifelse(!is.na(asses_codes$Subset.OID.y),asses_codes$Subset.OID.y,"Missing")))-> asses_codes$Codelist.OID 
-    
     ifelse(!is.na(asses_codes$Codelist.OID.x),asses_codes$Codelist.OID.x,ifelse(!is.na(asses_codes$Codelist.OID.y),asses_codes$Codelist.OID.y,"Missing"))-> asses_codes$Codelist.OID
     
     
@@ -1684,23 +1595,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   return(list(Library_items,combi_cl,CDB2, lt))
 }
 
-#read in additional data used for components of the app/functionality 
-DSS_Trial_List<- read_csv("DSS_Trial_List.csv")
-
-
-
-#dss trial list
-#Veeva_Study_Selections<-DSS_Trial_List[grepl("Veeva eDC/DMW", DSS_Trial_List[["Data Management System"]]) | grepl("Veeva eDC/CDB", DSS_Trial_List[["Data Management System"]]) , ]	       
-
-Veeva_Study_Selections<-DSS_Trial_List
-Veeva_Study_Selections<-subset(Veeva_Study_Selections$`TR Trial Alias`, Veeva_Study_Selections$`TR DB Fnlzd Fct` > 2021-01-01)
-
-#add a generic study used for Inform Migrations
-
-Veeva_Study_Selections <- append(Veeva_Study_Selections, "ONC-CA-DATA")
-
-Veeva_Study_Selections<-sort(Veeva_Study_Selections,decreasing = FALSE)
-
 #Adding a Usage Log
 usagelogr::registerAppInUsageTool("MANTIS")
 
@@ -1720,31 +1614,6 @@ ui <- navbarPage(
     useShinydashboard()
   ),
   
-  ##home page set up
-  #tabPanel(title = "Home", icon = icon("home"),
-  #         fluidPage(
-  #           useShinyalert(),  # Set up shinyalert
-  #           setBackgroundImage(src = "https://cdn.hipwallpaper.com/i/68/78/hgl5YK.jpg"),
-  #           fluidRow(column(12,align="center",h1(strong(span("Welcome to the Metrics Analytics Network & Technological Integrated Systems (MANTIS) Experience", style="color: #D4AF37; font-family: Papyrus")))),
-  #                    column(12,align="center",h3(span("Your one stop shop for all things:", style="color: #FFFFFF; font-family: Papyrus"))),
-  #                    column(4,align="center",actionBttn(inputId = "BA_Info",label = "Business Analytics",style = "float",size = "lg",color = "warning")),
-  #                    column(4,align="center",actionBttn(inputId = "Metrics_Info",label = "Metrics",style = "float",size = "lg",color = "warning")),
-  #                    column(4,align="center",actionBttn(inputId = "Process_Info",label = "Process Optimization",style = "float",size = "lg",color = "warning"))
-  #           )
-  #         )),
-  
-  ## Di Wang
-  # tabPanel(title = "**BETA** Portfolio Overview",
-  #         fluidPage(
-  #           box(width = 12,title = "Portfolio Review - SSU",collapsible = TRUE,solidHeader = TRUE,status = "primary",
-  #               column(12,align="center",actionBttn(inputId = "Button_Click_DI","Run Report"))
-  #           )),
-  #         fluidRow(
-  #           box(width = 6, title = "Sites",collapsible = TRUE,solidHeader = TRUE,background =  "light-blue",plotlyOutput("Impact_Plot")),
-  #           box(width = 6, title = "Countries",collapsible = TRUE,solidHeader = TRUE,background =  "light-blue",plotlyOutput("Countries_Plot"))
-  #         ),
-  #         box(width = 12, title = "Data Table",collapsible = TRUE,solidHeader = TRUE,status = "primary",dataTableOutput("Impact_Table"))),
-  
   ##Veeva tab
   tabPanel(title = "Veeva Tools",
            fluidPage(
@@ -1759,7 +1628,6 @@ ui <- navbarPage(
                  fileInput("uploadFile_ded", "DED ODM Report", accept = c(".xlsx")),
                  fileInput("uploadFile_sds", "Select Study SDS", accept = c(".xlsx")),
                  fileInput("uploadFile_map", "Select Items to Map"),
-                 #fileInput("uploadFile_map_lib", "Select Conversion LIbrary", accept = c(".xlsx")),
                  actionButton("Show_Report_Btn_Click","Run Report"),
                  downloadButton("download_all", "Download All" ),
                  
@@ -1784,9 +1652,6 @@ ui <- navbarPage(
              
            )), # END veeva tab panel
   
-  ##CQL tab
-  # tabPanel(title = "CQL Application", htmlOutput("frame")),
-  
   #ODM parse Tab
   tabPanel(title = "VDV ODM Parser", htmlOutput("frame1"))
   
@@ -1796,72 +1661,12 @@ ui <- navbarPage(
 # Define server logic 
 server <- function(input, output, session) {
   
-  ## CQL
-  
-  output$frame <- renderUI({
-    
-    tags$iframe(src="https://shiny-dev.am.lilly.com/CQL/", height=800, width="100%")
-  })
-  
   ## ODM parse
   
   output$frame1 <- renderUI({
     
     tags$iframe(src="https://posit-connect.am.lilly.com/LRL_ODMParserFromVDV_App/Prod/", height=800, width="100%")
   })
-  
-  ##home page informational pop up buttons
-  observeEvent(input$BA_Info, {
-    shinyalert(title = "Business Analytics",text = "Exploratory Analysis, Predicitive Modeling, Descriptive Modeling, Data Mining, and Forecasting/Time Series", type = "info")
-  })
-  
-  observeEvent(input$Metrics_Info, {
-    shinyalert(title = "Metrics",text = "Executive Summaries, Summary Data, Operational Data, Portfolio Trends, and Visualizations", type = "info")
-  })
-  
-  observeEvent(input$Process_Info, {
-    shinyalert(title = "Process Optimization",text = "Tools to aid in process improvements and Cabability to provide data outputs to other tools", type = "info")
-  })
-  
-  
-  ##Trial Summary (Di Wang)
-  
-  observeEvent(input$Button_Click_DI, {
-    
-    show_modal_spinner(
-      spin = "flower",
-      color = "#74c365",
-      text = "Loading..."
-    )
-    
-    source(file = "Programs/Active_Trial_Summary.R")
-    
-    Impact_Report<-IMPACT_Milestones_Countries 
-    
-    
-    output$Impact_Plot <- renderPlotly({
-      ggplot(data = Impact_Report,aes(x=Trial_Alias,y=Num_Sites,fill=country_name))+
-        geom_bar(stat = "identity")+ theme(axis.text.x = element_text(angle = 60))
-    })
-    
-    
-    output$Countries_Plot <- renderPlotly({
-      dat<-aggregate(Num_Countries ~ Trial_Alias  + Region,data = Impact_Report,FUN = sum)
-      ggplot(data = dat,aes(x=Trial_Alias,y=Num_Countries,fill=Region))+
-        geom_bar(stat = "identity")+ theme(axis.text.x = element_text(angle = 60))
-    })
-    
-    
-    output$Impact_Table<-DT::renderDataTable({
-      datatable(data = Impact_Report) 
-    })
-    
-    
-    DBI::dbDisconnect(conn = db_adHoc)
-    
-    remove_modal_spinner()
-  })
-  
   
   ##Aviad's server logic
   observeEvent(input$Show_Report_Btn_Click, {
@@ -1876,26 +1681,18 @@ server <- function(input, output, session) {
     
     ########DED filess######
     
-    SDS_DED_MATRIX<-SDS_DED_FUN(#ded = reactive({read_csv("/lrlhps/data/MANTIS/Data/Veeva/DED_Attribute_Report.csv")}),  
-      #ded_code = reactive({read_csv("/lrlhps/data/MANTIS/Data/Veeva/tblCodelists.csv")}),
+    SDS_DED_MATRIX<-SDS_DED_FUN(
       Lib_items = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Form Definitions", col_types = "text")}),
       asses = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Assessments", col_types = "text")}),
       Lib_codes = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Codelists", col_types = "text")}),
       sdtm = reactive({read_excel("DED_SDTM_Library.xlsx", col_types = "text")}),
       mapped_items = reactive({read_excel(input$uploadFile_map$datapath, sheet = 2, col_types = "text")}),
-      #ded_subcl = reactive({read_csv("/lrlhps/data/MANTIS/Data/Veeva/tblSubsets.csv")})
       odm_forms = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_FORM_IG", col_types = "text")}),
       odm_items = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_IG_Item", col_types = "text")}),
       odm_code = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "Codelist_ODM", col_types = "text")}),
       odm_sdtm = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_Item_Details", col_types = "text")}),
       odm_code_item = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_Item_DT", col_types = "text")})
-      
     ) 
-    
-    #Rules<-suppressWarnings(reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Rules")}))
-    #Rules <- suppressWarnings(data.frame(Rules()))
-    #names(Rules) <- suppressWarnings(make.names(names(Rules)) )
-    
     
     ### Outputs####
     
@@ -1918,48 +1715,10 @@ server <- function(input, output, session) {
                                    lengthMenu = list(c(5, -1), c("5", "All")) ))
     })
     
-    output$lt<- DT::renderDataTable({
-      DT::datatable(SDS_DED_MATRIX[[4]], 
-                    options = list(scrollX = TRUE,pageLength = 5, info = FALSE,
-                                   lengthMenu = list(c(5, -1), c("5", "All")) ))
-    })
-    
-    
     #removeModal()
     remove_modal_spinner()
     
     #### Downloads and Exports####
-    
-    ## Items
-    
-    wb_item <- createWorkbook()
-    addWorksheet(wb_item, sheetName = 'DED_SDS_items')
-    writeData(wb_item, sheet = "DED_SDS_items", x = SDS_DED_MATRIX[[1]])
-    
-    setHeaderFooter(wb_item,
-                    sheet = 1,
-                    header = c(NA, dQuote(input$studyid) , NA),
-                    footer = c("&[Page] of &[Pages]","&[Date]", "&[Time]"))
-    
-    
-    
-    
-    ## download all
-    
-    
-    # output$download_all2 <- downloadHandler(
-    #   
-    #   filename = function() {
-    #     "SDS_DED_ALL.xlsx"
-    #   },
-    #   content = function(filename){
-    #     
-    #     df_list <- list(Library_items= SDS_DED_MATRIX[[1]], combi_cl = SDS_DED_MATRIX[[2]],CDB2 = SDS_DED_MATRIX[[3]])
-    #     sh_list <- list("DED_SDS_items", "DED_SDS_codelist","CDB_Mappings")
-    #     write.xlsx(x = df_list , file = filename,sheetName=sh_list, row.names = FALSE)
-    #     write.xlsx(x = df_list , file = "//lrlhps/data/MANTIS/Data/Veeva/Output/SDS_DED_ALL.xlsx",sheetName=sh_list, row.names = FALSE)
-    #   }
-    # ) 
     
     
     
