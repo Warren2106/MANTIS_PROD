@@ -1447,8 +1447,8 @@ server <- function(input, output, session) {
   observeEvent(input$Show_Report_Btn_Click, {
     #showModal(modalDialog("Loading Report"))
     show_modal_spinner(
-      spin = "breeding-rhombus",
-      color = "#74c365",
+      spin = "orbit",
+      color = "#1000CC",
       text = "Loading..."
     )
     
