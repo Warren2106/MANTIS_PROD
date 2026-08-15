@@ -1305,10 +1305,10 @@ ui <- navbarPage(
     useShinydashboard(),
     shinyjs::useShinyjs(),
     shinyalert::useShinyalert()
-  ),
+  )),
   
   ##Veeva tab
-  tabPanel(title = "Veeva Tools",
+  navbarPage(tabPanel(title = "Veeva Tools",
            fluidPage(
              
              navbarPage("SDTM & CDB Report"),
@@ -1392,7 +1392,6 @@ ui <- navbarPage(
   )
   
 ) # end UI specifications
-
 # Define server logic 
 server <- function(input, output, session) {
   
