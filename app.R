@@ -1353,7 +1353,7 @@ ui <- navbarPage(
   tabPanel(title = "Veeva Tools",
            fluidPage(
              
-             navbarPage("SDTM & CDB Report"),
+             # Not Needed to be Visible navbarPage("SDTM & CDB Report"),
              br(),
              br(),   
              sidebarLayout(
