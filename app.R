@@ -1305,18 +1305,39 @@ ui <- navbarPage(
   tags$head(
     tags$style(HTML("
       .navbar-header {
-        float: none; width: 100%; text-align: center;
+        float: none;
+        width: 100%;
+        text-align: center;
+      }
+      .navbar-brand {
+        float: none;
+        display: inline-block;
       }
       .navbar-left, .navbar-nav {
-        float: none !important; 
+        float: none !important;
       }
       .navbar-nav {
         display: block;
         width: 100%;
+        padding: 10px 15px;
       }
       .navbar-nav > li {
         float: none;
         display: inline-block;
+        margin-right: 10px;
+      }
+      .navbar-nav > li > a {
+        background-color: #e6e6e6 !important;
+        border-radius: 4px;
+        padding: 8px 20px !important;
+        color: #333 !important;
+      }
+      .navbar-nav > li.active > a {
+        background-color: #d0d0d0 !important;
+        font-weight: bold;
+      }
+      .navbar-nav > li > a:hover {
+        background-color: #d5d5d5 !important;
       }
       .navbar-collapse {
         border-top: 1px solid #e7e7e7;
