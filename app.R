@@ -1701,7 +1701,7 @@ server <- function(input, output, session) {
   observeEvent(input$launch_modal, {
     datamods::import_modal(
       id = "myid",
-      from = c("file", "copypaste"),
+      from = c("file"),
       title = "Import data for VDV ODM Parser"
     )
     coversheet_df(datamods::import_server("myid", return_class = "tbl_df"))
