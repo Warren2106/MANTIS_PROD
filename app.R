@@ -1302,10 +1302,31 @@ ui <- navbarPage(
   title = strong(span("M.A.N.T.I.S", style = "color: MediumSeaGreen; font-size: 30px; font-family: Papyrus")),
   
   header = tagList(
-    useShinydashboard(),
-    shinyjs::useShinyjs(),
-    shinyalert::useShinyalert()
+  tags$head(
+    tags$style(HTML("
+      .navbar-header {
+        float: none;
+      }
+      .navbar-left, .navbar-nav {
+        float: none !important;
+      }
+      .navbar-nav {
+        display: block;
+        width: 100%; text-align: center;
+      }
+      .navbar-nav > li {
+        float: none;
+        display: inline-block;
+      }
+      .navbar-collapse {
+        border-top: 1px solid #e7e7e7;
+      }
+    "))
   ),
+  useShinydashboard(),
+  shinyjs::useShinyjs(),
+  shinyalert::useShinyalert()
+),
   
   ##Veeva tab
   tabPanel(title = "Veeva Tools",
