@@ -34,7 +34,7 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   
   #remove duplicate columns
   odm_combine %>% select(-Default.Value)->odm_combine
-  odm_sdtm %>% select(-Item.population.Method)->odm_sdtm
+  #odm_sdtm %>% select(-Item.population.Method)->odm_sdtm
   
   #add SDTM info
   odm_combine %>%
@@ -810,7 +810,7 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   #collapse with seperator by item OID and FOrm OID concat
   #paste(CDB2$DED.Form.OID,CDB2$Item_OID)->CDB2$concat
   #pick out the columns to collapse
-  CDB2 %>% select(concat,concat2,c(8:ncol(CDB2)))->CDB3
+  CDB2 %>% select(concat,concat2,c(6:ncol(CDB2)))->CDB3
   
   #collapse and paste
   #CDB3[is.na(CDB3)] <- ""
@@ -1211,9 +1211,12 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   mapped_items_cl$Item.Name <-mapped_items_cl$Item_OID 
   #combine to codelist
   
+  #Remove duplicates
+  mapped_items_cl  <- dplyr::distinct(mapped_items_cl,  .keep_all = TRUE)
+  sas  <- dplyr::distinct(sas,  .keep_all = TRUE)
+  
   
   #add SAS labels to mapped variables
-  
   #Join
   mapped_items_cl %>%
     left_join(sas, by = c("Item_OID" = "Item.OID"))->mapped_items_cl
