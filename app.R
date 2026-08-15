@@ -1441,6 +1441,9 @@ server <- function(input, output, session) {
   ##################################################################################################################################
   ## Veeva Tools (MANTIS) server logic ----
   ##################################################################################################################################
+#welcome alert ---- 
+  shinyalert("Welcome to M.A.N.T.I.S App", type = "info", timer = 3000, showConfirmButton = FALSE)
+  
   observeEvent(input$Show_Report_Btn_Click, {
     #showModal(modalDialog("Loading Report"))
     show_modal_spinner(
@@ -1685,9 +1688,6 @@ server <- function(input, output, session) {
   ##################################################################################################################################
   ## VDV ODM Parser server logic (merged in from the standalone app) ----
   ##################################################################################################################################
-  
-  #welcome alert ---- 
-  shinyalert("Welcome to M.A.N.T.I.S App", type = "info", timer = 3000, showConfirmButton = FALSE)
   
   shinyjs::disable("downloadButton1")
   
