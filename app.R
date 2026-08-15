@@ -1687,11 +1687,7 @@ server <- function(input, output, session) {
   ##################################################################################################################################
   
   #welcome alert ---- 
-  shinyalert("Welcome to the VDV ODM Parser App", glue("This app is intended to process the ODM DED files 
-                                                       based on the coversheet obtained from the ODM Codelist Items Compare Shiny App. 
-                                                       
-                                                        Here's a compliment. {praise()}"), 
-             type = "info")
+  shinyalert("Welcome to M.A.N.T.I.S App", type = "info")
   
   shinyjs::disable("downloadButton1")
   
