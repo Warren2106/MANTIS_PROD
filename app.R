@@ -1299,13 +1299,13 @@ ui <- navbarPage(
   windowTitle = ("MANTIS"),
   
   #Title of the Homepage
-  title = strong(span("M.A.N.T.I.S", style = "color: MediumSeaGreen; font-size: 30px; text-align: center; font-family: Papyrus")),
+  title = strong(span("Metrics Analytics Network Technological Integrated Systems (M.A.N.T.I.S)", style = "color: MediumSeaGreen; font-size: 30px; font-family: Papyrus")),
   
   header = tagList(
   tags$head(
     tags$style(HTML("
       .navbar-header {
-        float: none;
+        float: none; width: 100%; text-align: center;
       }
       .navbar-left, .navbar-nav {
         float: none !important; 
