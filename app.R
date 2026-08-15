@@ -1760,9 +1760,6 @@ server <- function(input, output, session) {
     
     shinyjs::enable("downloadButton1")
     
-    # success alert ---- 
-    shinyalert("Congrats!", glue("{praise()} The app just completed running. Inspect the output and download it as needed. "), type = "success")
-    
     #return list of datasets generated via parser.R
     list_of_datasets
 
