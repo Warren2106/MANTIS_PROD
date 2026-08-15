@@ -57,7 +57,7 @@ conflicts_prefer(DT::dataTableOutput)
 conflicts_prefer(dplyr::filter)
 
 ##define functions used in the application
-SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_items,asses,Lib_codes,sdtm,mapped_items){
+SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_items,asses,Lib_codes,mapped_items){
   #ODM DED
   odm_forms <- data.frame(odm_forms())
   odm_items <- data.frame(odm_items())
@@ -150,11 +150,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   
   Lib_codes <- data.frame(Lib_codes())
   names(Lib_codes) <- make.names(names(Lib_codes)) 
-  
-  ### SDTM Library####
-  
-  sdtm <- data.frame(sdtm())
-  names(sdtm) <- make.names(names(sdtm)) 
   
   ### Mapping file####
   
@@ -379,41 +374,6 @@ SDS_DED_FUN<-function(odm_forms,odm_items,odm_code,odm_sdtm,odm_code_item,Lib_it
   
   dplyr::filter(Library_items, !grepl('TRIG*', Name))->Library_items
   dplyr::filter(Library_items, !grepl('*DUMMY*', Item.Name))->Library_items
-  
-  
-  
-  #items to be removed per SDTM
-  sdtm %>% select (Item.Name, Not.needed)->sdtm_remove
-  
-  sdtm_remove %>% filter (Not.needed == "x")->sdtm_remove
-  
-  #SDTM notes and lookup
-  sdtm %>% select (Item.Name, Item_OID,Mandatory,Question,DED.Form.OID)->sdtm
-  
-  #join sdtm library for missing items
-  Library_items %>%
-    left_join(sdtm, by = c("Item.Name" = "Item.Name"))->Library_items
-  
-  #Collapse Items
-  ifelse(!is.na(Library_items$Item_OID.y),Library_items$Item_OID  <- Library_items$Item_OID.y,Library_items$Item_OID.x)-> Library_items$Item_OID
-  
-  ifelse(!is.na(Library_items$Mandatory.y),Library_items$Mandatory  <- Library_items$Mandatory.y,Library_items$Mandatory.x)-> Library_items$Mandatory
-  
-  ifelse(!is.na(Library_items$Question.y),Library_items$Question  <- Library_items$Question.y,Library_items$Question.x)-> Library_items$Question 
-  
-  ifelse(!is.na(Library_items$DED.Form.OID.y),Library_items$DED.Form.OID  <- Library_items$DED.Form.OID.y,Library_items$DED.Form.OID.x)-> Library_items$DED.Form.OID
-  
-  
-  Library_items %>% select(Name,Item.Name,Label,Item_OID,SAS.Field.Name,  Mandatory,Codelist,Question,DED.Form.OID)->Library_items
-  
-  #remove items SDTM identfied as not needed
-  Library_items %>%
-    anti_join(sdtm_remove, by = c("Item.Name" = "Item.Name")) -> Library_items
-  
-  
-  #missing items
-  Library_items %>%
-    filter(Item_OID == "Missing") ->Library_items_missing
   
   
   ##update
@@ -1455,7 +1415,6 @@ server <- function(input, output, session) {
       Lib_items = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Form Definitions", col_types = "text")}),
       asses = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Assessments", col_types = "text")}),
       Lib_codes = reactive({read_excel(input$uploadFile_sds$datapath, sheet = "Codelists", col_types = "text")}),
-      sdtm = reactive({read_excel("DED_SDTM_Library.xlsx", col_types = "text")}),
       mapped_items = reactive({read_excel(input$uploadFile_map$datapath, sheet = 2, col_types = "text")}),
       odm_forms = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_FORM_IG", col_types = "text")}),
       odm_items = reactive({read_excel(input$uploadFile_ded$datapath, sheet = "ODM_IG_Item", col_types = "text")}),
