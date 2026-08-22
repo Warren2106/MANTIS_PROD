@@ -1442,7 +1442,7 @@ server <- function(input, output, session) {
   ## Veeva Tools (MANTIS) server logic ----
   ##################################################################################################################################
 #welcome alert ---- 
-  shinyalert("Welcome to M.A.N.T.I.S App", type = "success", timer = 3000, showConfirmButton = FALSE)
+  shinyalert("Welcome to M.A.N.T.I.S App", type = "", timer = 2000, showConfirmButton = FALSE)
   
   observeEvent(input$Show_Report_Btn_Click, {
     #showModal(modalDialog("Loading Report"))
